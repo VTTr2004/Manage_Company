@@ -1,0 +1,41 @@
+<!-- mainpage/templates/mainpage/nhanvien.html -->
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Nhân viên{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'staf_style.css' %}">
+{% endblock %}
+
+{% block vertical-menu %}
+    <a href="{% url 'infor' %}" class="active">Thông tin</a>
+    <a href="{% url 'job' %}">Công Việc</a>
+    <a href="#">Đánh Giá</a>
+{% endblock %}
+
+{% block content %}
+    <div class="infor-box">
+        <div class="img-box">
+            Khung ảnh
+        </div>
+        {% if staf_inf %}
+            <div class="detail-infor-box">
+                <h1 style="margin: 4px 0;">{{staf_inf.id_r}}</h1>
+                <h4 style="margin: 4px 0;">{{staf_inf.name}} - {{staf_inf.year_born}}</h4>
+                <div style="margin: 4px 0;">{{staf_inf.status}}</div>
+                <div style="margin: 4px 0;">{{staf_inf.spec}}</div>
+                <div style="text-align: right;">{{staf_inf.email}}</div>
+            </div>
+        {% else %}
+            <div class="detail-infor-box">
+            Khung Thông Tin
+            </div>
+        {% endif %}
+    </div>  
+
+    {% block staf-content %}
+
+    {% endblock %}
+{% endblock %}

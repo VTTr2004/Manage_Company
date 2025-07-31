@@ -1,0 +1,17 @@
+{% for pr, joins in staf_content.items %}
+    <h3>{{pr}}:</h3>
+    <table>
+        <tr>
+            <th>Công Việc Chính</th>
+            <th>Mã Nhân Viên</th>
+            <th>Tiến Độ</th>
+        </tr>
+        {% for j in joins %}
+        <tr>
+            <td>Đang Phát Triển</td>
+            <td>{{ j.id_mana }}</td>
+            <td>{{ j.progress }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endfor %}

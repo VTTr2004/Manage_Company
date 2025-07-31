@@ -1,0 +1,15 @@
+<h2>Các Công Việc Cần Hoàn Thành</h2>
+<table>
+    <tr>
+        <th>Tên Công Việc</th>
+        <th>Thời Hạn</th>
+        <th>Trạng Thái</th>
+    </tr>
+    {% for staf in staf_content %}
+    <tr>
+        <th>{{staf.name_job}}</th>
+        <th>{{staf.dura}}</th>
+        <th>{{staf.status}}</th>
+    </tr>
+    {% endfor %}
+</table>

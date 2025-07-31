@@ -1,0 +1,13 @@
+{% extends 'staff_page/staf_base.html' %}
+
+{% block staf-content %}
+    <div class="main-box">
+        {% if role %}
+            {% with "staff_page/func_page/manage/"|add:role|add:".html" as template_path %}
+                {% include template_path %}
+            {% endwith %}
+        {% else %}
+            <p>Không xác định vai trò người dùng.</p>
+        {% endif %}
+    </div>
+{% endblock %}

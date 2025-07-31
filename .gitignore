@@ -1,0 +1,11 @@
+__pycache__/
+migrations/
+templates_old/
+quanlycty/
+__init__.py
+add_data.py
+admin.py
+apps.py
+tests.py
+db.sqlite3
+manage.py

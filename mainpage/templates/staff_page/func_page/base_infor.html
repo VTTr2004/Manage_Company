@@ -1,0 +1,9 @@
+{% extends 'staff_page/staf_base.html' %}
+
+{% block staf-content %}
+    {% if addr %}
+            {% include addr %}
+    {% else %}
+        <p>Không xác định vai trò người dùng.</p>
+    {% endif %}
+{% endblock %}

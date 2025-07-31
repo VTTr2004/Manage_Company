@@ -1,0 +1,66 @@
+/*  Khung Thông Tin Nhân Viên  */
+.infor-box {
+    display: flex;
+    height: 15%;
+    /* background-color: aqua; */
+}
+.img-box {
+    flex: 1;
+    background-color: rgb(110, 207, 31);
+}
+.detail-infor-box {
+    flex: 9;
+    background-color: rgb(108, 208, 233);
+}
+/*  Khung Nội Dung  */
+.main-box{
+    display: flex;
+    height: 85%;
+}
+.value-box{
+    flex: 1;
+    background-color: rgb(219, 36, 30);
+}
+/*Mỗi Thông Tin nằm trong 1 hàng*/
+.project-box{
+    display: block;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+/*  Thanh Menu Ngang Nhỏ  */
+.navbar_mem {
+    background-color: #405251;
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+.navbar_mem a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+.navbar_mem a:hover {
+    text-decoration: underline;
+}
+/* Bảng */
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 20px;
+}
+
+th, td {
+border: 1px solid #ccc;
+padding: 10px;
+text-align: left;
+}
+
+th {
+background-color: #f4f4f4;
+}
+
+tr:nth-child(even) {
+background-color: #f9f9f9;
+}

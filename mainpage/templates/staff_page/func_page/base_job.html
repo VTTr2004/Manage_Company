@@ -1,0 +1,15 @@
+{% extends 'staff_page/staf_base.html' %}
+
+{% block vertical-menu %}
+    <a href="{% url 'infor' %}">Thông tin</a>
+    <a href="{% url 'job' %}" class="active">Công Việc</a>
+    <a href="#">Đánh Giá</a>
+{% endblock %}
+
+{% block staf-content %}
+    {% if addr %}
+        {% include addr %}
+    {% else %}
+        <p>Không xác định vai trò người dùng.</p>
+    {% endif %}
+{% endblock %}

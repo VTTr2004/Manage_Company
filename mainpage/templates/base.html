@@ -1,0 +1,50 @@
+<!-- mainpage/templates/base.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Trang chính{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% block extra_css %}{% endblock %} 
+</head>
+<body>
+    <div class="navbar">
+        <div><strong>Quản lý công ty</strong></div>
+        <div>
+            <a href="#">Trang chủ</a>
+            <a href="#">Nhân viên</a>
+            <a href="{% url 'logout' %}">Đăng Xuất</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="vertical-menu">
+        {% block vertical-menu %}
+            Thanh tương tác dọc (vertical-menu)
+        {% endblock %}
+        </div>
+
+        <div class="content">
+            {% block content %}
+                Khung nội dung chính (content)
+            {% endblock %}
+        </div>
+
+        <div class="chat-box">
+            {% block chat-box %}
+                Khung chat (có thể mở rộng nếu muốn) (chat-box)
+            {% endblock %}
+        </div>
+    </div>
+
+    <div class="address">
+        {% block address %}
+            Địa Chỉ Công Ty.<br>
+            Email Liên Hệ.
+        {% endblock %}
+    </div>
+</body>
+</html>
