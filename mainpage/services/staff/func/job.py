@@ -59,7 +59,7 @@ class Job_Page:
         return
     
     @staticmethod
-    def Get_Data_Mana_Proj(id_staf):
+    def Get_Data_Mana_Proj(id_staf):    
         projs = [mana.id_pr for mana in Manage_Proj.objects.filter(id_staf=id_staf)]
         staf_content = defaultdict(list)
         for id_pr in projs:
@@ -71,7 +71,7 @@ class Job_Page:
             for id_mana, data in temp.items():
                 staf_content[id_pr].append(SimpleNamespace(
                     id_mana=id_mana,
-                    progress=round(data.count('hoan thanh')/len(data), 2) * 100
+                    progress=round(data.count('hoan_thanh')/len(data), 2) * 100
                 ))
         return dict(staf_content)
 
@@ -91,13 +91,16 @@ class Job_Page:
     def Get_Data(access_token, leader = False):
         id_staf = Account.objects.get(access_token=access_token).id_staf
         id_r = Staff.objects.get(id_staf=id_staf).id_r
-        addr = "staff_page/func_page/job/"
+        addr_page = "staff/func/job/"
+        script_location = 'js/staff/job/'
+        addr_script = ''
         if 'CD' in id_r or id_r in ['AD001', 'AD002', 'AD003']:
             if leader:
-                addr += "leader_it.html"
+                addr_page += "leader_it.html"
+                addr_script = script_location + 'leader_it.js'
                 staf_content = Job_Page.Get_Data_Coder_Lead(id_staf)
             else:
-                addr += "coder.html"
+                addr_page += "coder.html"
                 staf_content = Job_Page.Get_Data_Coder(id_staf)
         elif 'SL' in id_r:
             if leader:
@@ -110,7 +113,7 @@ class Job_Page:
             else:
                 staf_content = Job_Page.Get_Data_Shipper(id_staf)
         elif 'PR' in id_r:
-            addr += "proj.html"
+            addr_page += "proj.html"
             staf_content = Job_Page.Get_Data_Mana_Proj(id_staf)
         elif 'ST' in id_r:
             staf_content = Job_Page.Get_Data_Mana_Staf(id_staf)
@@ -119,4 +122,4 @@ class Job_Page:
         elif 'CU' in id_r:
             staf_content = Job_Page.Get_Data_Mana_Cust(id_staf)
 
-        return addr, staf_content
+        return addr_script, addr_page, staf_content

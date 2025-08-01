@@ -9,8 +9,8 @@ urlpatterns = [
     path('job/',views.func_page, {'page':'job'}, name='job'),
     path('manage/',views.func_page, {'page':'manage'}, name='manage'),
 
-    path('asignWork/',views.asignWork),
-    path('updateData/',views.updateData),
+    path('asignWork/',views.interact_db, {'work':'asignWork'}),
+    path('updateData/',views.interact_db, {'work':'updateData'}),
 
     path('logout/', views.func_page, {'page':'logout'}, name='logout')
 ]

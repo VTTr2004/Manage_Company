@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 
 from mainpage.models import Account, Manage_Staf
 
-from mainpage.source_code.func_class.infor import Infor
-from mainpage.source_code.func_class.job import Job_Page
+from .func.infor import Infor
+from .func.job import Job_Page
 
 class Call_Page:
     @staticmethod
@@ -52,17 +52,18 @@ class Call_Page:
         if page == 'infor':
             addr, staf_content, staf_inf = Infor.Get_Data(request.session['access_token'],
                                                           leader = lead)
-            return render(request, 'staff_page/func_page/base_infor.html', {
+            return render(request, 'staff/func/base_infor.html', {
                 'addr':addr,
                 'staf_content':staf_content,
                 'staf_inf':staf_inf
             })
         if page == 'job':
             staf_inf = Infor.Get_Data(request.session['access_token'], inf_only=True)
-            addr, staf_content = Job_Page.Get_Data(request.session['access_token'],
+            script, addr, staf_content = Job_Page.Get_Data(request.session['access_token'],
                                                           leader = lead)
-            return render(request, 'staff_page/func_page/base_job.html', {
-                'addr':addr,
+            return render(request, 'staff/func/base_job.html', {
+                'addr_script':script,
+                'addr_page':addr,
                 'staf_content':staf_content,
                 'staf_inf':staf_inf
             })

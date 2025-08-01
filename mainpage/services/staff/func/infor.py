@@ -69,20 +69,20 @@ class Infor:
         if inf_only:
             return staf_inf
         id_r = staf_inf.id_r
-        addr = "staff_page/func_page/infor/"
+        addr_page = "staff/func/infor/"
         staf_content = None
         if leader:
-            addr += 'staf_lv2.html'
+            addr_page += 'staf_lv2.html'
             staf_content = Infor.Get_Data_Leader(id_staf)
         elif 'CD' in id_r or id_r in ['AD002', 'AD003']:
-            addr += "coder.html"
+            addr_page += "coder.html"
             staf_content = Infor.Get_Data_Coder(id_staf)
         elif 'SL' in id_r:
             staf_content = Infor.Get_Data_Saler(id_staf)
         elif 'SP' in id_r:
             staf_content = Infor.Get_Data_Shipper(id_staf)
         elif 'PR' in id_r:
-            addr += 'staf_lv3.html'
+            addr_page += 'staf_lv3.html'
             staf_content = Infor.Get_Data_Mana_Proj(id_staf)
         elif 'ST' in id_r:
             staf_content = Infor.Get_Data_Mana_Staf(id_staf)
@@ -91,4 +91,4 @@ class Infor:
         elif 'CU' in id_r:
             staf_content = Infor.Get_Data_Mana_Cust(id_staf)
 
-        return addr, staf_content, staf_inf
+        return addr_page, staf_content, staf_inf

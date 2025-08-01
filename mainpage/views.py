@@ -5,17 +5,15 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 
-from mainpage.source_code.call_page import Call_Page
-from mainpage.source_code.asignwork import Asign_Work
+from .services.staff.call_page import Call_Page
+from .services.staff.interact_db import Interact_DB
 
 def func_page(request, page):
     return Call_Page.get_page(request, page)
 
-def asignWork(request):
-    return Asign_Work.Run(request)
-
-def updateData(request):
-    pass
+def interact_db(request, work):
+    print('co vo')
+    return Interact_DB.Run(request, work)
 
 # @csrf_exempt
 # def api_cap_nhat_trang_thai(request):

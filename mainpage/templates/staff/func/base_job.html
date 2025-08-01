@@ -1,4 +1,5 @@
-{% extends 'staff_page/staf_base.html' %}
+{% extends 'staff/staf_base.html' %}
+
 
 {% block vertical-menu %}
     <a href="{% url 'infor' %}">Thông tin</a>
@@ -7,9 +8,15 @@
 {% endblock %}
 
 {% block staf-content %}
-    {% if addr %}
-        {% include addr %}
+    {% if addr_page %}
+        {% include addr_page %}
     {% else %}
         <p>Không xác định vai trò người dùng.</p>
+    {% endif %}
+
+    {% if addr_script %}
+        {% load static %}
+        <script src="{% static 'js/staff/common.js' %}"></script>
+        <script src="{% static addr_script %}"></script>
     {% endif %}
 {% endblock %}

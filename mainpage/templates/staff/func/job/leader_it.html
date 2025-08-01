@@ -1,0 +1,39 @@
+<div>Công Cụ Tìm Kiếm</div>
+
+<h2>Các Công Việc Cần Hoàn Thành</h2>
+{% for pr, joins in staf_content.items %}
+    <h3>{{pr}}:</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Mã Nhân Viên</th>
+            <th>Công Việc</th>
+            <th>Thời Hạn</th>
+            <th>Trạng Thái</th>
+        </tr>
+        {% for j in joins %}
+        <tr>
+            <td>{{ j.id }}</td>
+            <td>{{ j.id_staf }}</td>
+            <td>{{ j.id_job }}</td>
+            <td>{{ j.dura }}</td>
+            <td>{{ j.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endfor %}
+
+<div>
+    <label>ID:</label>
+    <input type="text" id="id"><br>
+
+    <label>id_staf:</label>
+    <input type="text" id="id_staf">
+    <button onclick = "Action('asignWork')">Giao Việc</button><br>
+    <select id="status">
+        <option value="cho_duyet">Chờ duyệt</option>
+        <option value="dang_lam">Đang làm</option>
+        <option value="hoan_thanh">Hoàn thành</option>
+    </select>
+    <button onclick = "Action('updateData')">Cập Nhập Trạng Thái</button>
+</div>
